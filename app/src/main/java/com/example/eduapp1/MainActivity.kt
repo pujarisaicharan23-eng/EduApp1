@@ -4,14 +4,22 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.eduapp1.database.AppDatabase
+import com.example.eduapp1.repository.GameRepository
+import com.example.eduapp1.screen.GameScreen
+import com.example.eduapp1.screen.LandingScreen
+import com.example.eduapp1.screen.ScoreScreen
+import com.example.eduapp1.screen.SettingScreen
+import com.example.eduapp1.screen.TestDBScreen
 import com.example.eduapp1.ui.theme.EduApp1Theme
+import com.example.eduapp1.viewmodel.AppViewModel
+import com.example.eduapp1.viewmodel.AppViewModelFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,29 +27,34 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EduApp1Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                val context = LocalContext.current
+                val database = remember { AppDatabase.getDatabase(context) }
+                val repository = remember { GameRepository(database.appDao()) }
+                val factory = remember { AppViewModelFactory(repository) }
+                val viewModel: AppViewModel = viewModel(factory = factory)
+                val navController = rememberNavController()
+
+                NavHost(
+                    navController = navController,
+                    startDestination = Routes.LANDING
+                ) {
+                    composable(Routes.LANDING) {
+                        LandingScreen(navController, viewModel)
+                    }
+                    composable(Routes.SETTING) {
+                        SettingScreen(navController, viewModel)
+                    }
+                    composable(Routes.GAME) {
+                        GameScreen(navController, viewModel)
+                    }
+                    composable(Routes.SCORE) {
+                        ScoreScreen(navController, viewModel)
+                    }
+                    composable(Routes.TESTDB) {
+                        TestDBScreen(viewModel)
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EduApp1Theme {
-        Greeting("Android")
     }
 }

@@ -1,8 +1,8 @@
-package com.example.eduapp.viewmodel
+package com.example.eduapp1.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.eduapp.repository.GameRepository
+import com.example.eduapp1.repository.GameRepository
 
 class AppViewModelFactory(
     private val repository: GameRepository

@@ -1,7 +1,7 @@
-package com.example.eduapp.repository
+package com.example.eduapp1.repository
 
-import com.example.eduapp.database.AppDao
-import com.example.eduapp.database.User
+import com.example.eduapp1.database.AppDao
+import com.example.eduapp1.database.User
 import kotlinx.coroutines.flow.Flow
 
 class GameRepository(private val dao: AppDao) {

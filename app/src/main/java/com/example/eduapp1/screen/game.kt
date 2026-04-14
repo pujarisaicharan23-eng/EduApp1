@@ -1,4 +1,4 @@
-package com.example.eduapp.screen
+package com.example.eduapp1.screen
 
 import android.media.AudioManager
 import android.media.ToneGenerator
@@ -53,9 +53,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.eduapp.Routes
-import com.example.eduapp.helper.getBitmapFromAssetsByIndex
-import com.example.eduapp.viewmodel.AppViewModel
+import com.example.eduapp1.Routes
+import com.example.eduapp1.helper.getBitmapFromAssetsByIndex
+import com.example.eduapp1.viewmodel.AppViewModel
 import kotlinx.coroutines.delay
 
 @Composable

@@ -1,12 +1,12 @@
-package com.example.eduapp.viewmodel
+package com.example.eduapp1.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.eduapp.database.User
-import com.example.eduapp.repository.GameRepository
+import com.example.eduapp1.database.User
+import com.example.eduapp1.repository.GameRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map

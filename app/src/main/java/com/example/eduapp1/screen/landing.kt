@@ -1,4 +1,4 @@
-package com.example.eduapp.screen
+package com.example.eduapp1.screen
 
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -44,9 +44,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.eduapp.R
-import com.example.eduapp.Routes
-import com.example.eduapp.viewmodel.AppViewModel
+import com.example.eduapp1.R
+import com.example.eduapp1.Routes
+import com.example.eduapp1.viewmodel.AppViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -139,7 +139,7 @@ fun LandingScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.app_logo),
+                    painter = painterResource(id = R.mipmap.ic_launcher),
                     contentDescription = "App Logo",
                     modifier = Modifier
                         .fillMaxWidth(0.62f)

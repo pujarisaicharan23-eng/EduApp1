@@ -1,4 +1,4 @@
-package com.example.eduapp.screen
+package com.example.eduapp1.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,8 +21,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.eduapp.database.User
-import com.example.eduapp.viewmodel.AppViewModel
+import com.example.eduapp1.database.User
+import com.example.eduapp1.viewmodel.AppViewModel
 
 @Composable
 fun TestDBScreen(
